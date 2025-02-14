@@ -14,8 +14,7 @@ const createGrid = (n) => {
 };
 
 const findShortestPath = (grid, startObj, endObj) => {
-  console.log(startObj);
-  const visitedNodes = createGrid(5);
+  const visitedNodes = createGrid(GRID_SIZE);
   const queue = [];
 
   queue.push({ row: startObj.x, col: startObj.y, dis: 0 });
@@ -55,8 +54,9 @@ const findShortestPath = (grid, startObj, endObj) => {
   return -1;
 };
 
+const GRID_SIZE = 5
 export default function App() {
-  const [grid, setGrid] = useState(createGrid(5));
+  const [grid, setGrid] = useState(createGrid(GRID_SIZE));
   const [selectedSourceAndDestination, setSelectedSourceAndDestination] =
     useState({ source: null, destination: null });
 
@@ -138,7 +138,7 @@ export default function App() {
   };
 
   const handleResetClick = () => {
-    setGrid(createGrid(5));
+    setGrid(createGrid(GRID_SIZE));
     setSelectedSourceAndDestination({ source: null, target: null });
   };
 
